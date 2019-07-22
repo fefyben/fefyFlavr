@@ -1,0 +1,23 @@
+@import './reset.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}

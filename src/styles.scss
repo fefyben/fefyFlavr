@@ -1,3 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$flavr-primary: mat-palette($mat-grey, 800, 700, 400);
+$flavr-accent: mat-palette($mat-light-green, 800, 600, 200);
+$flavr-warn: mat-palette($mat-red, 900);
+
+$flavr-dark-theme: mat-dark-theme(
+  $flavr-primary,
+  $flavr-accent,
+  $flavr-warn
+);
+
+@include angular-material-theme($flavr-dark-theme);
+
+@import 'theme/flavr';
