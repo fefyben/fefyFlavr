@@ -1,0 +1,44 @@
+@import '../../../theme/flavr.scss';
+
+header {
+  background-color: $grey1;
+  border-bottom: 1px solid $grey0;
+  padding: 16px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+.logo {
+  height: 40px;
+
+}
+
+a {
+  // font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: $grey5;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $accent2;
+  }
+}
+
+
+@media screen and (max-width: 599px) {
+  .sidenav-icon {
+    position: absolute;
+  }
+
+  .logo-wrapper {
+    margin: 0 auto;
+  }
+}

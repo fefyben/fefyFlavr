@@ -1,0 +1,39 @@
+@import '../../../theme/flavr.scss';
+
+footer {
+  background-color: $grey2;
+  border-top: 1px solid $grey0;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+
+  form {
+    padding: 0 16px;
+
+    @media screen and (min-width: 600px) {
+      background-color: $grey1;
+    }
+  }
+
+  a {
+    color: $accent2;
+    font-family: "Font Awesome 5 Brands";
+    font-size: 24px;
+
+    &:hover {
+      color: $grey5;
+    }
+  }
+}
+
+.footer-text {
+  border-left: 1px solid $grey0;
+  font-size: 12px;
+  line-height: 24px;
+  margin-left: 16px;
+  padding-left: 16px;
+}

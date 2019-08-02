@@ -1,4 +1,5 @@
 @import './reset.scss';
+@import './variables.scss';
 
 * {
   box-sizing: border-box;
@@ -21,3 +22,37 @@ img {
   height: auto;
   width: 100%;
 }
+
+@include respond-to('small') {
+  .container {
+    padding: 0 10vw;
+    width: 100vw;
+    // max-width: 1440px;
+  }
+}
+
+/* Form
+----------------------------------------------------------------------------- */
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $accent2
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $grey3
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $accent2
+}
+
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  @include btn;
+}
+
+.mat-drawer-inner-container {
+  background-color: $grey1;
+  width: 300px
+}
+

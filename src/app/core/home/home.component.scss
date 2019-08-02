@@ -1,0 +1,255 @@
+@import '../../../theme/variables.scss';
+
+// Hero Animation
+.hero {
+  // background-image: url('https://previews.123rf.com/images/vell/vell1503/vell150300070/38216558-ingredients-for-cooking-and-cast-iron-skillet-on-an-old-wooden-table-food-background-concept-with-co.jpg');
+  // background-image: url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/157046/157046_00_2x.jpg?20181019025739');
+  // background-image: url('https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/4138488/1820/1213/m1/fpnw/wm1/e4jwzscj6ha7rigqpjce2msxqjn6jwh60ud2kmxnjbevvy3hp9m1bemfmlhkpbtt-.jpg?1521125486&s=24e536f0b1654c93dfb8f6069f6d87ca');
+  // background-image: url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/123194/123194_00_2x.jpg?20170602041721');
+  // background-image: url('https://previews.123rf.com/images/yuliyagontar/yuliyagontar1511/yuliyagontar151100304/47984333-organic-vegetables-on-rustic-wooden-table-food-background-healthy-food-from-garden-.jpg');
+  background-image: url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/110886/110886_00_2x.jpg?20160817230818');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-bottom: 1px solid $grey0;
+  height: 84vh;
+  margin-top: 89px;
+  overflow: hidden;
+  padding-top: 60vh;
+  position: relative;
+
+  @include respond-to('small') {
+    margin-top: 96px;
+  }
+
+  #logo-animated {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+    width: 80vw;
+
+    @include respond-to('small') {
+      width: 55vw;
+    }
+  }
+
+  //smoke effect
+  &-smoke {
+    position: absolute;
+    left: 5%;
+    bottom: 60%;
+
+    &-inner {
+      border: 2px solid rgba(255,255,255,.1);
+      border-radius:400px;
+      position:absolute;
+      margin:auto;
+
+      @for $i from 1 through 60{
+        &:nth-of-type(#{$i}){
+          box-shadow: 3px 0px rgba(255,255,255, - ($i/40)),6px -5px rgba(10, 0, 0,  - ($i/40));
+          width:($i * 6) + 0px;
+          height:($i * 1) + 0px;
+          left:($i * 10) + 0px;
+          bottom:($i * 10) + 0px;
+          filter: blur($i/3 + 8px);
+          transform-origin: ($i * 4) + 0px ($i * 2) + 0px;
+          animation: spin 3s ($i/10) + 0s linear infinite;
+          background:rgba(240 + ($i*3), 245 + ($i*3), 245 + ($i*3), 1 - ($i/30));
+        }
+      }
+    }
+  }
+
+  &-arrow-down {
+    color: $grey5;
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    animation: bounce 3s infinite;
+
+    .material-icons {
+      font-size: 2rem;
+    }
+  }
+
+  &-content {
+    color: $grey5;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 10vw;
+    font-weight: 100;
+    // padding: 0 15vw;
+
+    @include respond-to('small') {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+    }
+  }
+}
+
+// Recipes
+.recipe {
+  min-height: 80vh;
+  position: relative;
+
+  &:nth-child(odd) {
+    .recipe-caption {
+      left: 0;
+
+      &-border {
+        padding-left: 10vw;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    .recipe-caption {
+      right: 0;
+
+      &-border {
+        padding-right: 10vw;
+      }
+    }
+  }
+
+  &:last-child {
+    padding-bottom: 56px;
+  }
+
+  &-image {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 60vh;
+
+    -webkit-backface-visibility: hidden; // added to fix webkit bug jitter
+    -webkit-transform: perspective(1000px); // added to fix webkit bug jitter
+
+    #bagel & {
+      background-image: url('../../../assets/images/fefyFlavr_bagel.jpg');
+    }
+
+    #poke & {
+      background-image: url('../../../assets/images/fefyFlavr_poke.jpg');
+    }
+
+    #quinoa & {
+      background-image: url('../../../assets/images/fefyFlavr_tabule.jpg');
+    }
+  }
+
+  &-caption {
+    position: absolute;
+    top: 50%;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+
+    &-border {
+      background-color: $grey0;
+      padding: 1rem;
+      font-size: 1.5rem;
+      letter-spacing: .5rem;
+      line-height: 4.5rem;
+    }
+  }
+
+  &-content {
+    position:relative;
+
+    &-title {
+      color: $grey5;
+      font-size: 41px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    &-inner {
+      background-color: $grey1;
+      color: #b4c4d8;
+      font-size: 18px;
+      line-height: 1.78;
+      padding: 50px 10vw;
+      text-align: justify;
+    }
+  }
+
+  &-borders {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 50vh;
+
+    .recipe-borders-inside {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
+
+    .recipe-border {
+      background-color: $grey1;
+      position: absolute;
+      transition: 2s;
+
+      transform: scale(1, 1);
+
+      &-bottom,
+      &-top {
+        width: 100%;
+        height: 80px;
+      }
+
+      &-left,
+      &-right{
+        width: 80px;
+        height: 100%;
+      }
+
+      &-bottom,
+      &-right {
+        bottom: 0;
+        right: 0;
+      }
+      &-top,
+      &-left {
+        top: 0;
+        left: 0;
+      }
+
+      &-right {
+        transform-origin: right center;
+      }
+      &-left {
+        transform-origin: left center;
+      }
+      &-top {
+        transform-origin: center top;
+      }
+      &-bottom {
+        transform-origin: center bottom;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform:rotate(0deg) }
+  100% { transform:rotate(360deg) }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
